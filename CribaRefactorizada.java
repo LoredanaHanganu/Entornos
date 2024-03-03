@@ -6,23 +6,21 @@ public class CribaRefactorizada {
     // Método para generar números primos de 1 a max
     public static int[] generarPrimos(int max) {
 
-        if (max >= 2) {
-            // ASignar tamaño del array
-            int dim = max + 1; // Tamaño del array
-            boolean[] esPrimo = new boolean[dim];
-
-            iniciarArray(dim, esPrimo);
-
-            cribaNumerosPrimos(dim, esPrimo);
-
-            int cuenta = getCuentaPrimos(dim, esPrimo);
-
-            return rellenarArrayNumPrimos(cuenta, dim, esPrimo);
-
-        } else { // max < 2
-            // Si max es menor que 2, devolvemos un arreglo vacío
+        if ( max < 2 ){
+            // Si max es menor que 2, devolvemos un array vacío
             return new int[0];
         }
+
+        int dim = max + 1; // Tamaño del array
+        boolean[] esPrimo = new boolean[dim];
+
+        iniciarArray(dim, esPrimo);
+
+        cribaNumerosPrimos(dim, esPrimo);
+
+        int cuenta = getCuentaPrimos(dim, esPrimo);
+
+        return rellenarArrayNumPrimos(cuenta, dim, esPrimo);
     }
 
     private static int[] rellenarArrayNumPrimos(int cuenta, int dim, boolean[] esPrimo) {
